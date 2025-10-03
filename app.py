@@ -29,15 +29,32 @@ def classify_email():
     if not HF_API_TOKEN:
         return jsonify({"error": "Token da API do Hugging Face não configurado."}), 500
 
-    data = request.get_json()
-    email_text = data.get('email_text')
+    email_text = ""
+    text_from_form = request.form.get('email_text', '')
+    file_from_form = request.files.get('email_file')
 
-    if not email_text:
-        return jsonify({"error": "Nenhum texto de email fornecido."}), 400
-
-    processed_text = ' '.join(email_text.split())
-
+    if file_from_form:
+        filename = file_from_form.filename
+        if filename.endswith('.txt'):
+            email_text = file_from_form.read().decode('utf-8', errors='ignore')
+        elif filename.endswith('.pdf'):
+            try:
+                pdf_content = io.BytesIO(file_from_form.read())
+                reader = PyPDF2.PdfReader(pdf_content)
+                text_parts = [page.extract_text() for page in reader.pages if page.extract_text()]
+                email_text = "\n".join(text_parts)
+            except Exception as e:
+                return jsonify({"error": f"Não foi possível ler o arquivo PDF: {e}"}), 400
+        else:
+            return jsonify({"error": "Formato de arquivo não suportado. Use .txt ou .pdf"}), 400
+    elif text_from_form:
+        email_text = text_from_form
+    else:
+        return jsonify({"error": "Nenhum texto ou arquivo fornecido."}), 400
+    
     try:
+        processed_text = ' '.join(email_text.split())
+
         super_labels = {
             "Este é um email de trabalho que exige uma ação, resposta ou análise.": "Produtivo",
             "Esta é uma mensagem social, um agradecimento, um spam ou um comunicado que não exige ação.": "Improdutivo"
@@ -58,18 +75,15 @@ def classify_email():
             return jsonify({"error": "Resposta inesperada da API Hugging Face.", "raw_response": output}), 500
 
         melhor_super_label = output['labels'][0]
-
         melhor_score = output['scores'][0]
-
+        
         categoria_classificada = super_labels.get(melhor_super_label, "Indefinido")
 
         resposta_sugerida = ""
         if categoria_classificada == "Produtivo":
             resposta_sugerida = "Obrigado por sua mensagem. Recebemos sua solicitação e nossa equipe irá analisá-la em breve."
-        elif categoria_classificada == "Improdutivo":
-            resposta_sugerida = "Agradecemos o contato. Esta mensagem foi recebida."
         else:
-            resposta_sugerida = "Resposta padrão."
+            resposta_sugerida = "Agradecemos o contato. Esta mensagem foi recebida."
 
         result_json = {
             "categoria": categoria_classificada,
@@ -79,8 +93,6 @@ def classify_email():
 
         return jsonify(result_json)
 
-    except requests.exceptions.RequestException as e:
-        return jsonify({"error": f"Erro de conexão com a API: {e}"}), 500
     except Exception as e:
         return jsonify({"error": f"Ocorreu um erro inesperado: {str(e)}"}), 500
     

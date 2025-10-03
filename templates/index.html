@@ -26,9 +26,16 @@
                         
                         <form id="email-form">
                             <div class="mb-3">
-                                <textarea id="email-text" class="form-control" rows="10" placeholder="Cole o texto do email aqui..."></textarea>
+                                <label for="email-text" class="form-label">Cole o texto do email aqui</label>
+                                <textarea id="email-text" class="form-control" rows="8" placeholder="O texto do email..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Analisar Agora</button>
+                            <div class="text-center my-3 fw-bold">OU</div>
+                            <div class="mb-3">
+                                <label for="email-file" class="form-label">Envie um arquivo (.txt ou .pdf)</label>
+                                <input class="form-control" type="file" id="email-file" accept=".txt,.pdf">
+                                <small id="file-name-display" class="form-text text-muted mt-1"></small>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 mt-3">Analisar Agora</button>
                         </form>
                     </div>
                 </div>
