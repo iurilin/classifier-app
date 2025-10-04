@@ -8,7 +8,7 @@
 
 A versão publicada da aplicação está disponível no seguinte link:
 
-**https://classifier-app-wdl9-git-main-iurilins-projects.vercel.app/** ---
+**https://classifier-app-wdl9.vercel.app/** ---
 
 ## ✨ Funcionalidades
 
