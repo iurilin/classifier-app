@@ -1,5 +1,3 @@
-// static/js/script.js
-
 const emailForm = document.getElementById('email-form');
 const emailText = document.getElementById('email-text');
 const emailFile = document.getElementById('email-file');
@@ -8,21 +6,19 @@ const resultsContainer = document.getElementById('results-container');
 const resultContent = document.getElementById('result-content');
 const loadingSpinner = document.getElementById('loading-spinner');
 
-// Mostra o nome do arquivo selecionado
 emailFile.addEventListener('change', () => {
     if (emailFile.files.length > 0) {
         fileNameDisplay.textContent = `Arquivo selecionado: ${emailFile.files[0].name}`;
-        emailText.disabled = true; // Desabilita a área de texto se um arquivo for escolhido
+        emailText.disabled = true;
     } else {
         fileNameDisplay.textContent = '';
         emailText.disabled = false;
     }
 });
 
-// Limpa o input de arquivo se o usuário começar a digitar
 emailText.addEventListener('input', () => {
     if (emailText.value.length > 0) {
-        emailFile.value = ''; // Limpa a seleção de arquivo
+        emailFile.value = '';
         fileNameDisplay.textContent = '';
     }
 });
@@ -38,12 +34,10 @@ emailForm.addEventListener('submit', async function(event) {
         return;
     }
 
-    // Usa FormData para enviar texto e/ou arquivo
     const formData = new FormData();
     formData.append('email_text', textContent);
     formData.append('email_file', fileContent);
 
-    // Mostra o contêiner de resultados e o spinner
     resultsContainer.style.display = 'block';
     loadingSpinner.style.display = 'block';
     resultContent.style.display = 'none';
@@ -51,7 +45,6 @@ emailForm.addEventListener('submit', async function(event) {
     try {
         const response = await fetch('/classify', {
             method: 'POST',
-            // Não defina 'Content-Type', o navegador faz isso automaticamente com FormData
             body: formData 
         });
 
@@ -62,7 +55,6 @@ emailForm.addEventListener('submit', async function(event) {
 
         const data = await response.json();
 
-        // O resto da lógica para exibir os resultados é a mesma
         const categorySpan = document.getElementById('email-category');
         const replyDiv = document.getElementById('suggested-reply');
         const confidenceScoreSpan = document.getElementById('confidence-score');

@@ -8,11 +8,11 @@ body {
 
 .navbar {
     background-color: #111 !important;
-    border-bottom: 2px solid #ff8c00;
+    border-bottom: 2px solid #070088;
 }
 
 .navbar-brand {
-    color: #ffA500 !important;
+    color: #070088 !important;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -26,8 +26,8 @@ body {
 
 .card-header {
     background-color: transparent;
-    border-bottom: 1px solid #ff8c00;
-    color: #ffa500;
+    border-bottom: 1px solid #0900ba;
+    color: #0901ac;
     font-weight: 500;
 }
 
@@ -45,12 +45,12 @@ body {
 .form-control:focus {
     background-color: #3a4147;
     color: #fff;
-    border-color: #ffa500;
+    border-color: #070088;
     box-shadow: 0 0 8px rgba(255, 165, 0, 0.4);
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #ff8c00, #ff4500);
+    background: linear-gradient(45deg, #000ac8, #06007d);
     border: none;
     font-weight: bold;
     padding: 10px;
@@ -59,27 +59,46 @@ body {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.5);
-    background: linear-gradient(45deg, #ffa500, #ff6347); 
+    box-shadow: 0 5px 15px rgba(12, 0, 94, 0.5);
+    background: linear-gradient(45deg, #070088, #0003c5); 
 }
 
 #results-container .card-title {
-    color: #ffa500;
+    color: #0900ba;
 }
 
 #suggested-reply.alert {
     background-color: #2c2c2e;
-    border-left: 4px solid #ff8c00;
+    border-left: 4px solid #2f00ff;
     color: #e0e0e0;
 }
 
 #email-category.badge {
-    background-color: #ff8c00;
+    background-color: #0015b4;
     color: #111;
     font-size: 0.9em;
     font-weight: bold;
 }
 
 .spinner-border {
-    color: #ffa500; 
+    color: #070088; 
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #222;
+    color: #bbb;
+    font-size: 0.9em;
+    border-top: 1px solid #333; 
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
