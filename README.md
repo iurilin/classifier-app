@@ -94,7 +94,7 @@ Siga os passos abaixo para rodar o projeto na sua máquina.
 
 ## 👨‍💻 Autor
 
-Desenvolvido por **[Seu Nome Completo]**.
+Desenvolvido por **Iuri Patryk Lima de Sousa**.
 
 * **LinkedIn:** https://www.linkedin.com/in/iuri-lima-0176072b7/
 * **GitHub:** https://github.com/iurilin
