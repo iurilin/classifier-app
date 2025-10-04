@@ -52,12 +52,20 @@ def classify_email():
     else:
         return jsonify({"error": "Nenhum texto ou arquivo fornecido."}), 400
     
+    word_count = len(email_text.strip().split())
+    if word_count < 10:
+        return jsonify({
+            "categoria": "Improdutivo",
+            "resposta_sugerida": "Agradecemos o contato. Esta mensagem foi recebida.",
+            "confianca": 0.99 
+        })
+    
     try:
         processed_text = ' '.join(email_text.split())
 
         super_labels = {
-            "Este é um email de trabalho que exige uma ação, resposta ou análise.": "Produtivo",
-            "Esta é uma mensagem social, um agradecimento, um spam ou um comunicado que não exige ação.": "Improdutivo"
+            "Este email representa o início ou a continuação de uma tarefa de trabalho.": "Produtivo",
+            "Este email finaliza uma conversa, é puramente social ou apenas informativo.": "Improdutivo"
         }
 
         api_payload = {
