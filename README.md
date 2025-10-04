@@ -1,6 +1,5 @@
 # 📧 Classificador de Emails Inteligente
 
-![Demonstração da Aplicação](https://i.imgur.com/link-para-uma-imagem-da-sua-app.png) 
 > Projeto desenvolvido como solução para o desafio proposto pela AutoU. O objetivo é criar uma aplicação web que utiliza Inteligência Artificial para automatizar a leitura e classificação de emails corporativos, sugerindo a categoria (Produtivo ou Improdutivo) e uma resposta apropriada, liberando tempo da equipe de tarefas manuais e repetitivas.
 
 ---
@@ -9,7 +8,7 @@
 
 A versão publicada da aplicação está disponível no seguinte link:
 
-**[https://seu-link-do-vercel.vercel.app/](https://seu-link-do-vercel.vercel.app/)** ---
+**https://classifier-app-wdl9-git-main-iurilins-projects.vercel.app/** ---
 
 ## ✨ Funcionalidades
 
@@ -57,7 +56,7 @@ Siga os passos abaixo para rodar o projeto na sua máquina.
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+    git clone https://github.com/iurilin/classifier-app/tree/main
     cd seu-repositorio
     ```
 
@@ -97,6 +96,6 @@ Siga os passos abaixo para rodar o projeto na sua máquina.
 
 Desenvolvido por **[Seu Nome Completo]**.
 
-* **LinkedIn:** [https://linkedin.com/in/seu_perfil](https://linkedin.com/in/seu_perfil)
-* **GitHub:** [https://github.com/seu-usuario](https://github.com/seu-usuario)
-* **Email:** `seu.email@exemplo.com`
+* **LinkedIn:** https://www.linkedin.com/in/iuri-lima-0176072b7/
+* **GitHub:** https://github.com/iurilin
+* **Email:** `iurilime@gmail.com`
