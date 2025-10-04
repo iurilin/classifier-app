@@ -5,7 +5,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__,
+            static_folder=os.path.join(os.path.dirname(__file__), '..', 'static'),
+            template_folder=os.path.join(os.path.dirname(__file__), '..', 'templates'))
 
 API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-mnli"
 HF_API_TOKEN = os.getenv("HF_API_TOKEN")
