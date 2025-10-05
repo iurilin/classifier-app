@@ -1,6 +1,7 @@
 import os
 import io
 import requests
+import PyPDF2
 from flask import Flask, request, jsonify, render_template
 from dotenv import load_dotenv
 
