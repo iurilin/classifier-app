@@ -1,6 +1,6 @@
 # 📧 Classificador de Emails Inteligente
 
-> Projeto desenvolvido como solução para o desafio proposto pela AutoU. O objetivo é criar uma aplicação web que utiliza Inteligência Artificial para automatizar a leitura e classificação de emails corporativos, sugerindo a categoria (Produtivo ou Improdutivo) e uma resposta apropriada, liberando tempo da equipe de tarefas manuais e repetitivas.
+O objetivo é criar uma aplicação web que utiliza Inteligência Artificial para automatizar a leitura e classificação de emails corporativos, sugerindo a categoria (Produtivo ou Improdutivo) e uma resposta apropriada, liberando tempo da equipe de tarefas manuais e repetitivas.
 
 ---
 
